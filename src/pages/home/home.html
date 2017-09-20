@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="scan()">Scan ... </button>
+  <div *ngIf="scanData">
+      <p>Scanned Text : </p>
+      <p>Scanned Format : </p>
+
+  </div>
+</ion-content>
