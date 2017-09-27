@@ -1,16 +1,25 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Part Details
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="scan()">Scan ... </button>
-  <div *ngIf="scanData">
-      <p>Scanned Text : </p>
-      <p>Scanned Format : </p>
-
+  <!-- <button ion-button (click)="scan()">Scan QR Code </button> -->
+  <img src="../../assets/images/scan.png" style="width:50px;height:50px;cursor:pointer;" (click)="scan()"/>
+  
+  <div *ngIf="scanData">    
+  
   </div>
+  <div *ngIf="partDetails">    
+    <p>Part Id : {{partDetails.partId}} </p>
+    <p>VIN : {{partDetails.vin}} </p>
+    <p>Part Code : {{partDetails.partCode}} </p>
+    <p>Batch Code : {{partDetails.batchCode}} </p>
+    <p>Part Type : {{partDetails.partType}} </p>
+    <p>Part Name : {{partDetails.partName}} </p>
+    <p>Description : {{partDetails.description}} </p>
+</div>
 </ion-content>
