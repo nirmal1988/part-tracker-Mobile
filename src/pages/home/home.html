@@ -13,13 +13,29 @@
   <div *ngIf="scanData">    
   
   </div>
-  <div *ngIf="partDetails">    
-    <p>Part Id : {{partDetails.partId}} </p>
-    <p>VIN : {{partDetails.vin}} </p>
-    <p>Part Code : {{partDetails.partCode}} </p>
-    <p>Batch Code : {{partDetails.batchCode}} </p>
-    <p>Part Type : {{partDetails.partType}} </p>
-    <p>Part Name : {{partDetails.partName}} </p>
-    <p>Description : {{partDetails.description}} </p>
+<div *ngIf="partDetails">    
+<ion-row class="part-history-row" width-100>
+<div class="part-history-row-div">
+	<b>Part Id : {{partDetails.partId}} ({{partDetails.partName }}) </b>
+</div>
+</ion-row>	
+<ion-row responsive-sm *ngFor="let item of partDetails.transactions">
+	<ion-row *ngIf="item.ttype =='CREATE'" class="part-history-row" width-100>
+		<div class="part-history-row-div">Added By {{item.user}}</div>
+		<div class="part-history-row-div">on {{item.dateOfManufacture }}</div>
+		<div class="part-history-row-div">Part Code: {{partDetails.partCode }}</div>
+		<div class="part-history-row-div">Batch Code: {{partDetails.batchCode }}</div>
+		<div class="part-history-row-div">Part Type: {{partDetails.partType }}</div>
+		<div class="part-history-row-div">Part Name: {{partDetails.partName }}</div>
+		<div class="part-history-row-div">Description: {{partDetails.description }}</div>
+	</ion-row>	
+	<ion-row *ngIf="item.ttype =='PART_INSTALLED'" class="part-history-row" width-100>
+		<div class="part-history-row-div">PART INSTALLED BY {{item.user}}</div>
+		<div class="part-history-row-div">on {{item.dateOfInstallation }}</div>
+		<div class="part-history-row-div">Vehicle Vin: {{item.vin }}</div>
+		<div class="part-history-row-div">Warranty Start Date: {{item.warrantyStartDate }}</div>
+		<div class="part-history-row-div">Warranty End Date: {{item.warrantyEndDate }}</div>		
+	</ion-row>	
+</ion-row>
 </div>
 </ion-content>
