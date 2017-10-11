@@ -7,9 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- <button ion-button (click)="scan()">Scan QR Code </button> -->
-  <img src="../../assets/images/scan.png" style="width:50px;height:50px;cursor:pointer;" (click)="scan()"/>
-  
+	<!-- <button ion-button (click)="scan()">Scan QR Code </button> -->
+
+	   <ion-icon ios="ios-qr-scanner" md="md-qr-scanner" style="font-size:60px;cursor:pointer;" (click)="scan()"></ion-icon> 
+
+	<!-- <img src="../../assets/images/scan.png" alt="Scan QR Code" style="width:50px;height:50px;cursor:pointer;" (click)="scan()"/> -->
+
   <div *ngIf="scanData">    
   
   </div>
